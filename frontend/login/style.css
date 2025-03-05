@@ -1,0 +1,102 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-image: url("../images/azure.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.1); /* Make the container slightly transparent */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form .form-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form .btn-primary {
+    background-color: #ff7e5f;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form .btn-primary:hover {
+    background-color: #feb47b;
+}
+
+.forgot-password {
+    font-size: 14px;
+    text-decoration: none;
+    color: crimson;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+}
+
+.social-login button {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.signup-link {
+    margin-top: 20px;
+}
+
+.signup-link a {
+    /*color: #ff7e5f;*/
+    color: crimson;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

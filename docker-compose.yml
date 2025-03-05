@@ -1,0 +1,59 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - backendv2
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MAILHOG_HOST=mailhog
+      - MAILHOG_PORT=1025
+      - PG_HOST=postgres
+    depends_on:
+      - postgres
+      - mailhog
+
+  backendv2:
+    build:
+      context: ./backendV2
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    environment:
+      - MAILHOG_HOST=mailhog
+      - MAILHOG_PORT=1025
+    depends_on:
+      - postgres
+      - mailhog
+
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: money_orders
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  postgres_data:
